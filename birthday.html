@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thổi Nến May Mắn</title>
+  <style>
+    body {
+      background: linear-gradient(to top right, #fef5e7, #fbeee6);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 150px;
+      background: #f1948a;
+      border-radius: 0 0 50% 50%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+    .candle {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 40px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .flame {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: orange;
+      border-radius: 50%;
+      animation: flicker 1s infinite;
+    }
+    @keyframes flicker {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    button {
+      padding: 10px 20px;
+      background: #f5b041;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e67e22;
+      color: white;
+    }
+    #luckyNumber {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #2e4053;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="cake">
+    <div class="candle">
+      <div class="flame" id="flame"></div>
+    </div>
+  </div>
+  <button onclick="blowCandle()">Thổi nến</button>
+  <div id="luckyNumber"></div>
+
+  <script>
+    function blowCandle() {
+      const flame = document.getElementById('flame');
+      flame.style.display = 'none';
+
+      const number = Math.floor(Math.random() * 99) + 1;
+      document.getElementById('luckyNumber').innerText = `Số may mắn của bạn là: ${number}`;
+    }
+  </script>
+</body>
+</html>
